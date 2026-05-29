@@ -1,0 +1,29 @@
+.nearby-hotels__grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.nearby-hotels__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--warm-brown);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.nearby-hotels__rating svg {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 1100px) {
+  .nearby-hotels__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .nearby-hotels__grid {
+    grid-template-columns: 1fr;
+  }
+}

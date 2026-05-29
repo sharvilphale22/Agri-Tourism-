@@ -1,0 +1,111 @@
+.page {
+  padding-top: var(--nav-height);
+}
+
+.page--explore {
+  background: var(--off-white);
+  min-height: 100vh;
+}
+
+.explore__header {
+  padding: 2rem 0 1.5rem;
+  background: linear-gradient(165deg, var(--beige-light), var(--off-white));
+  border-bottom: 1px solid var(--beige);
+}
+
+.explore__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--dark-olive);
+  margin-bottom: 0.35rem;
+}
+
+.explore__subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.explore__body {
+  padding-block: 2rem var(--section-padding-y);
+}
+
+.explore__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.explore__filter-input,
+.explore__filter-select {
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  min-width: 120px;
+}
+
+.explore__filter-input--sm {
+  min-width: 90px;
+  max-width: 100px;
+}
+
+.explore__filter-input:focus,
+.explore__filter-select:focus {
+  outline: none;
+  border-color: var(--forest-green);
+}
+
+.explore__chip {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.explore__chip:hover {
+  border-color: var(--forest-green);
+  color: var(--forest-green);
+}
+
+.explore__chip--active {
+  background: var(--forest-green);
+  color: var(--off-white);
+  border-color: var(--forest-green);
+}
+
+.explore__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.explore__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .explore__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .explore__grid {
+    grid-template-columns: 1fr;
+  }
+}

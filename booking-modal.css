@@ -1,0 +1,63 @@
+.booking-modal .booking-modal__summary {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.25rem;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--beige);
+}
+
+.booking-modal__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.booking-modal__row strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: right;
+}
+
+.booking-modal__row--fee {
+  border-top: 1px solid var(--beige);
+  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+}
+
+.booking-modal__row--total {
+  border-top: 1px solid var(--beige);
+  margin-top: 0.25rem;
+  padding-top: 0.85rem;
+  font-size: 1rem;
+}
+
+.booking-modal__row--total strong {
+  font-size: 1.15rem;
+  color: var(--forest-green);
+}
+
+.booking-modal__confirm {
+  width: 100%;
+}
+
+.booking-modal__success {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.booking-modal__success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--forest-green);
+  color: var(--off-white);
+  font-size: 1.25rem;
+}

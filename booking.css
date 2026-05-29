@@ -1,0 +1,103 @@
+.booking__header .booking__label,
+.booking__header .booking__title,
+.booking__header .booking__subtitle {
+  color: var(--off-white);
+}
+
+.booking__header .booking__label {
+  color: var(--beige);
+}
+
+.booking__header .booking__subtitle {
+  color: rgba(249, 246, 240, 0.85);
+}
+
+.booking__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 0;
+  background: rgba(249, 246, 240, 0.95);
+}
+
+.booking__form {
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.booking__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.booking__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.booking__field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dark-olive);
+}
+
+.booking__field input,
+.booking__field select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--off-white);
+  border: 1.5px solid var(--beige);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.booking__field input:focus,
+.booking__field select:focus {
+  outline: none;
+  border-color: var(--forest-green);
+  box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.15);
+}
+
+.booking__submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.booking__visual {
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.booking__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .booking__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .booking__visual {
+    min-height: 220px;
+    order: -1;
+  }
+
+  .booking__row {
+    grid-template-columns: 1fr;
+  }
+}

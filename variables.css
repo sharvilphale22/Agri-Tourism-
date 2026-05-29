@@ -1,0 +1,28 @@
+:root {
+  --forest-green: #2d5a27;
+  --forest-green-light: #3d7a35;
+  --beige: #e8dcc4;
+  --beige-light: #f3ebe0;
+  --warm-brown: #6b4423;
+  --warm-brown-light: #8b5e34;
+  --off-white: #f9f6f0;
+  --dark-olive: #3d4a2c;
+  --text-primary: #2a2f24;
+  --text-muted: #5c6354;
+  --glass-bg: rgba(249, 246, 240, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --shadow-soft: 0 8px 32px rgba(45, 90, 39, 0.08);
+  --shadow-medium: 0 16px 48px rgba(45, 90, 39, 0.12);
+  --shadow-hover: 0 24px 56px rgba(45, 90, 39, 0.16);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --section-padding-y: clamp(4rem, 10vw, 7rem);
+  --section-padding-x: clamp(1.25rem, 5vw, 3rem);
+  --container-max: 1200px;
+  --nav-height: 80px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,19 @@
+.nashik-places {
+  background: var(--off-white);
+}
+
+.nashik-places__grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .nashik-places__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .nashik-places__grid {
+    grid-template-columns: 1fr;
+  }
+}
