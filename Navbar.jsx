@@ -1,102 +1,99 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
-import { navLinks } from '../assets/data';
-import '../styles/navbar.css';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [location.pathname]);
+  const links = [
+    { path: '/', label: 'Home' },
+    { path: '/explore', label: 'Explore' },
+    { path: '/dining', label: 'Dining' },
+    { path: '/farmers', label: 'Farmers Market' },
+  ];
 
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileOpen]);
-
-  const handleNavClick = () => setMobileOpen(false);
-
-  const showSolid = scrolled || !isHome;
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
-    <motion.header
-      className={`navbar ${showSolid ? 'navbar--scrolled' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
+    <header
+      style={{
+        background: '#f8f8f5',
+        borderBottom: '1px solid #e5e7eb',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+      }}
     >
-      <div className="container navbar__inner">
-        <Link to="/" className="navbar__logo" onClick={handleNavClick}>
-          <span className="navbar__logo-icon">🌿</span>
-          <span className="navbar__logo-text">VillageRoots</span>
-        </Link>
-
-        <nav className="navbar__nav">
-          <ul className="navbar__links">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <NavLink
-                  to={link.path}
-                  end={link.path === '/'}
-                  onClick={handleNavClick}
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <Link to="/explore" className="btn btn-primary navbar__cta" onClick={handleNavClick}>
-          Book Village Stay
-        </Link>
+      <nav
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '1rem 2rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <NavLink
+          to="/"
+          style={{
+            textDecoration: 'none',
+            color: '#1f2937',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+          }}
+        >
+          🌿 VillageRoots
+        </NavLink>
 
         <button
-          type="button"
-          className="navbar__toggle"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display: 'none',
+          }}
         >
-          {mobileOpen ? <HiX size={28} /> : <HiOutlineMenuAlt3 size={28} />}
+          ☰
         </button>
-      </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="navbar__mobile"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+        <div
+          style={{
+            display: 'flex',
+            gap: '2rem',
+            alignItems: 'center',
+          }}
+        >
+          {links.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              onClick={handleNavClick}
+              style={({ isActive }) => ({
+                textDecoration: 'none',
+                color: isActive ? '#166534' : '#304561',
+                fontWeight: '600',
+                transition: '0.3s',
+              })}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+
+          <button
+            style={{
+              background: '#2f6b2f',
+              color: '#fff8f5',
+              border: 'none',
+              padding: '0.9rem 1.8rem',
+              borderRadius: '999px',
+              fontWeight: '600',
+              cursor: 'pointer',
+            }}
           >
-            <ul>
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <NavLink to={link.path} end={link.path === '/'} onClick={handleNavClick}>
-                    {link.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-            <Link to="/explore" className="btn btn-primary" onClick={handleNavClick}>
-              Book Village Stay
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            Book Village Stay
+          </button>
+        </div>
+      </nav>
+    </header>
   );
 }
