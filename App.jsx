@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+
 import LoadingScreen from './components/LoadingScreen';
 import Layout from './components/Layout';
+
 import Home from './pages/Home';
 import Explore from './pages/Explore';
 import PropertyDetails from './pages/PropertyDetails';
@@ -26,11 +28,11 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/property/:id" element={<PropertyDetails />} />
-              <Route path="/dining" element={<Dining />} />
-              <Route path="/farmers" element={<Farmers />} />
+              <Route path="/" element={<Home />} text-black/>
+              <Route path="/Explore" element={<Explore />} />
+              <Route path="/PropertyDetails/:id" element={<PropertyDetails />} />
+              <Route path="/Dining" element={<Dining />} />
+              <Route path="/Farmers" element={<Farmers />} />
             </Route>
           </Routes>
         </BrowserRouter>
