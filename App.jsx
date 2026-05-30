@@ -28,11 +28,11 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Home />} text-black/>
-              <Route path="/Explore" element={<Explore />} />
-              <Route path="/PropertyDetails/:id" element={<PropertyDetails />} />
-              <Route path="/Dining" element={<Dining />} />
-              <Route path="/Farmers" element={<Farmers />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/property/:id" element={<PropertyDetails />} />
+              <Route path="/dining" element={<Dining />} />
+              <Route path="/farmers" element={<Farmers />} />
             </Route>
           </Routes>
         </BrowserRouter>
